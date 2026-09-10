@@ -1,15 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
+import Categories from "./pages/Categories";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-// Temporary placeholders, replaced in the next phase
 function Products() {
     return <h1 className="text-xl font-semibold">Products</h1>;
-}
-
-function Categories() {
-    return <h1 className="text-xl font-semibold">Categories</h1>;
 }
 
 export default function App() {
@@ -17,7 +13,6 @@ export default function App() {
         <Routes>
             <Route path="/login" element={<Login />} />
 
-            {/* The layout is wrapped once, so every page inside it is protected */}
             <Route
                 element={
                     <ProtectedRoute>

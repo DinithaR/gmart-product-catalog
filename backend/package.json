@@ -1,0 +1,29 @@
+{
+  "name": "gmart-product-catalog-backend",
+  "version": "1.0.0",
+  "description": "Product catalog and inventory management API built with Express, Knex and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "db:reset": "knex migrate:rollback --all && knex migrate:latest && knex seed:run"
+  },
+  "keywords": ["express", "knex", "mysql", "jwt"],
+  "author": "Dinitha Ranketh",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "knex": "^3.3.0",
+    "mysql2": "^3.24.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

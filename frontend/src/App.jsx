@@ -3,10 +3,7 @@ import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
-
-function Products() {
-    return <h1 className="text-xl font-semibold">Products</h1>;
-}
+import Products from "./pages/Products";
 
 export default function App() {
     return (

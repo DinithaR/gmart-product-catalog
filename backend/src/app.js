@@ -2,16 +2,26 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
+const authRoutes = require("./routes/authRoutes");
+const errorHandler = require("./middleware/errorHandler");
+
 const app = express();
 
-// CORS allows the Vite dev server on a different port to call this API
 app.use(cors());
-
-// Parses incoming JSON request bodies into req.body
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
 });
+
+app.use("/api/auth", authRoutes);
+
+// Any request that matched no route above falls through to here
+app.use((req, res) => {
+    res.status(404).json({ message: "Route not found" });
+});
+
+// Registered last so it receives errors forwarded from every handler above it
+app.use(errorHandler);
 
 module.exports = app;
